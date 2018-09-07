@@ -1,14 +1,18 @@
 
 <div class="container">
 <div class="row">
-<% @todos.each_slice(3) do |row|%>
+<% @Todos.each_slice(3) do |row|%>
 <%row.each do |todo|%>
 <div class="col">
 <div class="card">
-<%=  todo.photo %>	<div class="body">
+<%= image_tag todo.photo,size:'300x200',class: "card-img-top" %>	
+<div class="body">
 	<h5><%= todo.name %></h5>
-<%=link_to "Not Completed", todo_completeds_path(todo),class:'btn btn-danger', method: :post%>
-
+	<% if @status.include?(todo.id) %>
+<%=link_to "No Completado", todo_completed_path(todo, current_user),class:"btn btn-danger",  method: :patch %>
+<% else %>
+<%=link_to "Completedo",todo_completeds_path(todo),class:"btn btn-success",  method: :post %>
+<%end%>
 </div>
 </div>
 </div>
