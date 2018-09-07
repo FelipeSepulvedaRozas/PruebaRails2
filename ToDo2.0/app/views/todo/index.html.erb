@@ -7,7 +7,7 @@
 <div class="card">
 <%=  todo.photo %>	<div class="body">
 	<h5><%= todo.name %></h5>
-<%=link_to "Not Completed", "#",class:"btn btn-danger" %>
+<%=link_to "Not Completed", todo_completeds_path(todo),class:'btn btn-danger', method: :post%>
 
 </div>
 </div>
