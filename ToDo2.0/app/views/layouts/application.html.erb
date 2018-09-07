@@ -21,6 +21,12 @@
         <a class="nav-link" href="#">Completed</a>
       </li>
     </ul>
+          <li class="text-warning">
+        <% if user_signed_in? %>
+          <%= @completes %> / <%= @total %> Completed count  
+        <% end %>        
+        <br>
+      </li>
      <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <a class="nav-link"><%= current_user.email %></a>
