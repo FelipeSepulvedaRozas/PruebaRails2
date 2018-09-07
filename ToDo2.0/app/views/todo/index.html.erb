@@ -1,6 +1,19 @@
-<h1>Todo#index</h1>
-<% @todos.each do |todo|%>
-<%= todo.photo %>
-<%= todo.name %>
-<%= todo.description %>
+
+<div class="container">
+<div class="row">
+<% @todos.each_slice(3) do |row|%>
+<%row.each do |todo|%>
+<div class="col">
+<div class="card">
+<%=  todo.photo %>	<div class="body">
+	<h5><%= todo.name %></h5>
+<%=link_to "Not Completed", "#",class:"btn btn-danger" %>
+
+</div>
+</div>
+</div>
+<%end%>
+<div class="w-100" style="margin-top:20px"></div>
 <% end %> 
+</div>
+</div>
