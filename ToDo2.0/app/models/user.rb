@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
 has_many :completeds
 has_many :todos, through: :completeds
+
 end

@@ -1,0 +1,18 @@
+
+<div class="container">
+<h1> <%= @Todo.name %> </h1>	
+<p> <%= @Todo.description %> </p>
+<p> <%= image_tag @Todo.photo ,size:'400x400'%> </p>
+<%= link_to 'ToDo-List', root_path, :class => 'btn btn-success' %>
+
+<h3><u>Listado de Personas que hicieron la accion</u></h3>	
+<% @users.each do |user| %>
+<p><%= user.email %></p>
+<% end %>
+
+<br>
+<h3><u>Top 5 Primeros</u></h3>
+<% @Top.each do |top| %>
+<p><%= top.email %></p>
+<% end %> 
+</div>

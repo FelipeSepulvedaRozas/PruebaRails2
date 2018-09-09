@@ -6,8 +6,8 @@ class CompletedsController < ApplicationController
  
   	@todo = Todo.find(params[:todo_id])
   	@user = current_user
-  	@n = Completed.where(:user_id => @user, :todo_id => @todo)
-  	if @n.empty?
+  	@task = Completed.where(:user_id => @user, :todo_id => @todo)
+  	if @task.empty?
 		@completed = Completed.new(todo: @todo, user: current_user, status: true)
 	  	if @completed.save
 	  		redirect_to root_path, notice:'Estado completado'
@@ -34,9 +34,11 @@ class CompletedsController < ApplicationController
   	end
   end
 
-
-
   def completed_params
   	params.require(:completed).permit(:user_id, :todo_id, :status => false)
+  end
+
+  def index
+    @completeds=current_user.completeds
   end
 end
