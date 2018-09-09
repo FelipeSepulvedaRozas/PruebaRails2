@@ -1,23 +1,23 @@
 
 <div class="container">
-<div class="row">
-<% @Todos.each_slice(3) do |row|%>
-<%row.each do |todo|%>
-<div class="col">
-<div class="card">
-<%= image_tag todo.photo,size:'300x200',class: "card-img-top" %>	
-<div class="body">
-	<h4><%=link_to todo.name ,todo_path(todo)%></h4>
-	<% if @status.include?(todo.id) %>
-<%=link_to "No Completado", todo_completed_path(todo, current_user),class:"btn btn-danger",  method: :patch %>
-<% else %>
-<%=link_to "Completado",todo_completeds_path(todo),class:"btn btn-success",  method: :post %>
-<%end%>
-</div>
-</div>
-</div>
-<%end%>
-<div class="w-100" style="margin-top:30px"></div>
-<% end %> 
-</div>
+	<div class="row">
+		<% @Todos.each_slice(3) do |row|%>
+		<%row.each do |todo|%>
+			<div class="col">
+				<div class="card">
+					<%= image_tag todo.photo,size:'350x250',class: "card-img-top" %>	
+					<div class="body">
+						<h4><%=link_to todo.name ,todo_path(todo)%></h4>
+							<% if @status.include?(todo.id) %>
+								<%=link_to "No Completado", todo_completed_path(todo, current_user),class:"btn btn-danger",  method: :patch %>
+							<% else %>
+								<%=link_to "Completado",todo_completeds_path(todo),class:"btn btn-success",  method: :post %>
+							<%end%>
+					</div>
+				</div>
+			</div>
+		<%end%>
+	<div class="w-100" style="margin-top:30px"></div>
+		<% end %> 
+	</div>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ToDo20</title>
+    <title>ToDo2.0</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -40,12 +40,12 @@
 </nav>
   </div>
 </nav>
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
   <% end %>
-    <%= yield %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <%= yield %>
   </body>
 </html>
